@@ -1,12 +1,11 @@
 'use client'
 import Link from 'next/link';
-import Image from 'next/image'; // <-- 1. IMPORT NEXT/IMAGE
+import Image from 'next/image'; // We need this for the brand logos
 import { motion } from 'framer-motion';
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaQuoteLeft } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
-// Car logos from react-icons are no longer needed
 
-// --- (Featured Cars, Social Links, Customer Reviews arrays are unchanged) ---
+// --- (Featured Cars, Social Links, Customer Reviews, Brand Logos arrays are unchanged) ---
 const featuredCars = [
   {
     "id": 1,
@@ -57,7 +56,6 @@ const customerReviews = [
   }
 ];
 
-// --- 2. NEW BRAND LOGO DATA ARRAY ---
 const brandLogos = [
   { src: '/brands/toyota.jpg', alt: 'Toyota Logo' },
   { src: '/brands/honda.jpg', alt: 'Honda Logo' },
@@ -117,7 +115,6 @@ function ReviewCard({ review }) {
   );
 }
 
-// --- 3. NEW BRAND LOGO CARD COMPONENT ---
 function BrandLogoCard({ logo }) {
   return (
     <motion.div
@@ -156,7 +153,7 @@ export default function Home() {
   return (
     <div>
 
-      {/* --- (Fixed Background and Hero Section are unchanged) --- */}
+      {/* --- FIXED BACKGROUND --- */}
       <div 
         className="fixed inset-0 z-[-10] bg-cover bg-center bg-no-repeat opacity-30"
         style={{ 
@@ -164,7 +161,9 @@ export default function Home() {
         }}
       />
       
+      {/* 1. Hero Section - UPDATED */}
       <section className="relative h-[60vh] min-h-[400px] md:h-[80vh] md:min-h-[500px] bg-iw-primary/70 text-white flex items-center justify-center">
+        
         <motion.div 
           className="relative z-10 text-center p-4"
           initial={{ opacity: 0, y: 20 }}
@@ -172,10 +171,10 @@ export default function Home() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            Premium <span className="text-glow text-iw-accent-orange">Imported</span> Vehicles
+            Premium <span className="text-glow text-iw-accent-orange">Imports:</span> Vehicles & Parts
           </h1>
           <p className="text-xl md:text-2xl text-iw-text-secondary mb-8">
-            Sourcing high-quality vehicles from Japan & the UK.
+            Your direct source for vehicles, spare parts, and accessories from Japan & the UK.
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link href="/cars" className="cta-button-orange">
@@ -185,6 +184,7 @@ export default function Home() {
               On-Demand Sourcing
             </Link>
           </div>
+
           <div className="mt-12">
             <a
               href="tel:+94711008070"
@@ -195,6 +195,7 @@ export default function Home() {
               <span>Call Us: +94 71 100 8070</span>
             </a>
           </div>
+
           <div className="flex justify-center space-x-6 mt-6">
             {socialLinks.map((social) => (
               <a
@@ -209,10 +210,11 @@ export default function Home() {
               </a>
             ))}
           </div>
+          
         </motion.div>
       </section>
 
-      {/* --- (Featured Cars and Services sections are unchanged) --- */}
+      {/* 2. Featured Cars Section */}
       <section className="container-main bg-iw-primary relative">
         <h2 className="text-3xl font-bold text-center text-iw-text-primary mb-8">
           Featured Vehicles
@@ -224,24 +226,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 3. Services Summary Section - UPDATED */}
       <section className="bg-iw-secondary relative">
         <div className="container-main grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
-            <h3 className="text-2xl font-semibold text-iw-accent-orange mb-2">1. Consult</h3>
-            <p className="text-iw-text-secondary">Tell us your vision. We provide expert advice on market availability, pricing, and the import process.</p>
+            <h3 className="text-2xl font-semibold text-iw-accent-orange mb-2">1. Consult & Advise</h3>
+            <p className="text-iw-text-secondary">Whether it's a specific vehicle or a rare part, tell us your vision. We provide expert advice on availability, pricing, and the import process.</p>
           </div>
           <div>
-            <h3 className="text-2xl font-semibold text-iw-accent-orange mb-2">2. Source</h3>
-            <p className="text-iw-text-secondary">Our partners in Japan & the UK find and professionally inspect your vehicle at auction or dealer networks.</p>
+            <h3 className="text-2xl font-semibold text-iw-accent-orange mb-2">2. Source & Inspect</h3>
+            <p className="text-iw-text-secondary">Our partners source from exclusive vehicle auctions and verified parts suppliers in Japan & the UK. We inspect everything for quality.</p>
           </div>
           <div>
-            <h3 className="text-2xl font-semibold text-iw-accent-orange mb-2">3. Deliver</h3>
-            <p className="text-iw-text-secondary">We handle all shipping, logistics, customs, and registration. You get the keys, hassle-free.</p>
+            <h3 className="text-2xl font-semibold text-iw-accent-orange mb-2">3. Deliver & Handle</h3>
+            <p className="text-iw-text-secondary">We handle all shipping, logistics, customs, and registration. You get your vehicle or parts delivered to your door, hassle-free.</p>
           </div>
         </div>
       </section>
 
-      {/* --- (Customer Review Section is unchanged) --- */}
+      {/* 4. Customer Review Section */}
       <section className="container-main bg-iw-primary relative">
         <h2 className="text-3xl font-bold text-center text-iw-text-primary mb-12 text-glow">
           What Our Clients Say
@@ -250,8 +253,8 @@ export default function Home() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.5 }}
+          whileInView="visible" // Animation triggers when you scroll to it
+          viewport={{ once: true, amount: 0.5 }} // Ensures animation runs once
         >
           {customerReviews.map((review, index) => (
             <ReviewCard key={index} review={review} />
@@ -259,11 +262,11 @@ export default function Home() {
         </motion.div>
       </section>
       
-      {/* --- 4. UPDATED TRUST SIGNALS SECTION --- */}
+      {/* 5. Trust Signals Section (with Logos) - UPDATED */}
       <section className="container-main text-center border-t border-iw-accent-orange/10 bg-iw-primary relative">
-        <h2 className="text-2xl font-bold text-iw-text-primary mb-6">Your Trusted Partner in Vehicle Imports</h2>
+        <h2 className="text-2xl font-bold text-iw-text-primary mb-6">Your Trusted Partner in Premium Imports</h2>
         <p className="text-lg text-iw-text-secondary max-w-3xl mx-auto mb-12">
-          We are not just importers; we are car enthusiasts dedicated to transparency and quality. We specialize in sourcing from the world's most reputable brands.
+          We are not just importers; we are car enthusiasts dedicated to transparency and quality. We specialize in sourcing premium vehicles *and* genuine spare parts from the world's most reputable brands.
         </p>
         
         <motion.div 

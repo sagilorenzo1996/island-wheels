@@ -3,15 +3,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-// Import the new icons
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // --- UPDATED NAVLINKS ---
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/cars', label: 'Cars' },
+    { href: '/spare-parts', label: 'Spare Parts' },
+    { href: '/accessories', label: 'Accessories' },
     { href: '/service', label: 'How to Import' },
     { href: '/about', label: 'About Us' },
     { href: '/faq', label: 'FAQs' },
@@ -45,16 +47,16 @@ export default function Navbar() {
           {/* Desktop Nav & Socials Wrapper */}
           <div className="hidden md:flex items-center">
             {/* Page Links */}
-            <div className="flex space-x-6 items-center">
+            <div className="flex space-x-5 items-center"> {/* Reduced space to fit new items */}
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-iw-text-secondary hover:text-iw-accent-orange transition-colors">
+                <Link key={link.href} href={link.href} className="text-iw-text-secondary text-sm hover:text-iw-accent-orange transition-colors"> {/* Added text-sm */}
                   {link.label}
                 </Link>
               ))}
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4 ml-6 pl-6 border-l border-iw-accent-orange/20">
+            <div className="flex items-center space-x-4 ml-5 pl-5 border-l border-iw-accent-orange/20"> {/* Reduced space */}
               {socialLinks.map((social, index) => (
                 <a
                   key={index}
