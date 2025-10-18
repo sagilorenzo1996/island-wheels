@@ -13,7 +13,7 @@ export default function CarCard({ car }) {
     <motion.div
       className="glassmorphism rounded-lg shadow-xl overflow-hidden flex flex-col"
       variants={cardVariants}
-      whileHover={{ scale: 1.03, boxShadow: "0px 0px 15px rgba(244, 107, 22, 0.5)" }} // Orange shadow
+      whileHover={{ scale: 1.03, boxShadow: "0px 0px 15px rgba(244, 107, 22, 0.5)" }}
       transition={{ type: "spring", stiffness: 300 }}
     >
       <Link href={`/cars/${car.slug}`}>
@@ -24,6 +24,14 @@ export default function CarCard({ car }) {
         
         {/* Price and Disclaimer */}
         <p className="text-iw-accent-orange font-semibold text-lg mt-1">{car.price_display}</p>
+        
+        {/* --- NEW PRICE IN MILLIONS --- */}
+        {car.price_million && (
+          <p className="text-iw-text-secondary font-semibold text-sm">
+            {car.price_million}
+          </p>
+        )}
+        
         <p className="text-xs text-iw-text-secondary italic mt-1">
           *Price subject to gov. taxes & policy changes.
         </p>

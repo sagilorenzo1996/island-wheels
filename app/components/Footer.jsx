@@ -1,15 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-// Import the new icons
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 
 export default function Footer() {
-  // Social links data
+  // --- UPDATED SOCIAL LINKS ---
   const socialLinks = [
-    { href: 'https://facebook.com/your-handle', icon: FaFacebook },
-    { href: 'https://instagram.com/your-handle', icon: FaInstagram },
-    { href: 'https://tiktok.com/@your-handle', icon: FaTiktok },
-    { href: 'https://wa.me/94771234567', icon: FaWhatsapp },
+    { href: 'https://www.facebook.com/share/18d4yc7C3p/?mibextid=wwXIfr', icon: FaFacebook },
+    { href: 'https://www.instagram.com/islandwheels.lk', icon: FaInstagram },
+    { href: 'https://www.tiktok.com/@islandwheelslk', icon: FaTiktok },
+    { href: 'https://wa.me/94711008070', icon: FaWhatsapp },
   ];
 
   return (
@@ -32,6 +31,8 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-iw-text-primary mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/cars" className="hover:text-iw-accent-orange">Cars for Sale</Link></li>
+              <li><Link href="/spare-parts" className="hover:text-iw-accent-orange">Spare Parts</Link></li>
+              <li><Link href="/accessories" className="hover:text-iw-accent-orange">Accessories</Link></li>
               <li><Link href="/service" className="hover:text-iw-accent-orange">How to Import</Link></li>
               <li><Link href="/about" className="hover:text-iw-accent-orange">About Us</Link></li>
               <li><Link href="/faq" className="hover:text-iw-accent-orange">FAQs</Link></li>
@@ -40,17 +41,17 @@ export default function Footer() {
           </div>
           <div>
             <h4 className="text-lg font-semibold text-iw-text-primary mb-4">Contact Us</h4>
+            {/* --- UPDATED CONTACTS --- */}
             <ul className="space-y-2 text-sm">
-              <li>Phone: <a href="tel:+94771234567" className="hover:text-iw-accent-orange">+94 77 123 4567</a></li>
-              {/* WhatsApp link is now in the "Follow Us" section, but we can keep it here too for contact */}
-              <li>WhatsApp: <a href="https://wa.me/94771234567" target="_blank" className="hover:text-iw-accent-orange">+94 77 123 4567</a></li>
+              <li>Phone: <a href="tel:+94711008070" className="hover:text-iw-accent-orange">+94 71 100 8070</a></li>
+              <li>WhatsApp: <a href="https://wa.me/94711008070" target="_blank" className="hover:text-iw-accent-orange">+94 71 100 8070</a></li>
               <li>Email: <a href="mailto:info.islandwheels@gmail.com" className="hover:text-iw-accent-orange">info.islandwheels@gmail.com</a></li>
               <li>Location: 123, Galle Road, Colombo 03, Sri Lanka</li>
             </ul>
           </div>
           <div>
             <h4 className="text-lg font-semibold text-iw-text-primary mb-4">Follow Us</h4>
-            {/* Updated Social Links */}
+            {/* --- UPDATED SOCIAL LINKS --- */}
             <div className="flex space-x-5">
               {socialLinks.map((social, index) => (
                 <a
@@ -68,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-iw-accent-orange/20 mt-8 pt-8 text-center text-sm">
-          <p>© {new Date().getFullYear()} Island Wheels. All rights reserved. Website by Island Wheels.</p>
+          <p>© {new Date().getFullYear()} Island Wheels. All rights reserved. Website by [Your Name/Company].</p>
         </div>
       </div>
     </footer>

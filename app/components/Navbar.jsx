@@ -8,7 +8,6 @@ import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // --- UPDATED NAVLINKS ---
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/cars', label: 'Cars' },
@@ -20,12 +19,12 @@ export default function Navbar() {
     { href: '/contact', label: 'Contact' },
   ];
 
-  // Social links data
+  // --- UPDATED SOCIAL LINKS ---
   const socialLinks = [
-    { href: 'https://facebook.com/your-handle', icon: FaFacebook },
-    { href: 'https://instagram.com/your-handle', icon: FaInstagram },
-    { href: 'https://tiktok.com/@your-handle', icon: FaTiktok },
-    { href: 'https://wa.me/94771234567', icon: FaWhatsapp },
+    { href: 'https://www.facebook.com/share/18d4yc7C3p/?mibextid=wwXIfr', icon: FaFacebook },
+    { href: 'https://www.instagram.com/islandwheels.lk', icon: FaInstagram },
+    { href: 'https://www.tiktok.com/@islandwheelslk', icon: FaTiktok },
+    { href: 'https://wa.me/94711008070', icon: FaWhatsapp },
   ];
 
   return (
@@ -47,16 +46,16 @@ export default function Navbar() {
           {/* Desktop Nav & Socials Wrapper */}
           <div className="hidden md:flex items-center">
             {/* Page Links */}
-            <div className="flex space-x-5 items-center"> {/* Reduced space to fit new items */}
+            <div className="flex space-x-5 items-center">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="text-iw-text-secondary text-sm hover:text-iw-accent-orange transition-colors"> {/* Added text-sm */}
+                <Link key={link.href} href={link.href} className="text-iw-text-secondary text-sm hover:text-iw-accent-orange transition-colors">
                   {link.label}
                 </Link>
               ))}
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center space-x-4 ml-5 pl-5 border-l border-iw-accent-orange/20"> {/* Reduced space */}
+            <div className="flex items-center space-x-4 ml-5 pl-5 border-l border-iw-accent-orange/20">
               {socialLinks.map((social, index) => (
                 <a
                   key={index}

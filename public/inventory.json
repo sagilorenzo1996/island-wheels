@@ -5,9 +5,10 @@
       "make": "Toyota",
       "model": "Land Cruiser ZX",
       "year": 2022,
-      "price": 185000,
+      "price": 18500000,
       "currency": "LKR",
-      "price_display": "LKR 18,500,000",
+      "price_display": "LKR 18,500,000 Upwards",
+      "price_million": "(18.5 Million LKR)",
       "mileage": 15000,
       "body_type": "SUV",
       "engine": "3.3L V6 Twin-Turbo",
@@ -19,7 +20,9 @@
       "gallery": [
         "https://images.pexels.com/photos/1164778/pexels-photo-1164778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/97353/pexels-photo-97353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       ]
     },
     {
@@ -28,9 +31,10 @@
       "make": "Land Rover",
       "model": "Defender 110",
       "year": 2021,
-      "price": 150000,
+      "price": 15000000,
       "currency": "LKR",
-      "price_display": "LKR 15,000,000",
+      "price_display": "LKR 15,000,000 Upwards",
+      "price_million": "(15 Million LKR)",
       "mileage": 22000,
       "body_type": "SUV",
       "engine": "3.0L P400",
@@ -41,7 +45,10 @@
       "description": "A true modern classic. This Defender 110, imported from the UK, combines rugged durability with a premium, tech-forward interior. Full service history available. A rare find in Sri Lanka.",
       "gallery": [
         "https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        "https://images.pexels.com/photos/244206/pexels-photo-244206.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/10394781/pexels-photo-10394781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/110822/pexels-photo-110822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       ]
     },
     {
@@ -50,9 +57,10 @@
       "make": "Nissan",
       "model": "GT-R Nismo",
       "year": 2019,
-      "price": 250000,
+      "price": 25000000,
       "currency": "LKR",
       "price_display": "Price on Request",
+      "price_million": null,
       "mileage": 8000,
       "body_type": "Coupe",
       "engine": "3.8L V6 Twin-Turbo",
@@ -63,7 +71,10 @@
       "description": "The legendary 'Godzilla'. This Nismo-tuned GT-R is a track weapon, sourced directly from Japan. Available via our 'On-Demand' import service. Contact us for a full consultation.",
       "gallery": [
         "https://images.pexels.com/photos/3764984/pexels-photo-3764984.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "https://images.pexels.com/photos/62623/wing-plane-flying-airplane-62623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        "https://images.pexels.com/photos/62623/wing-plane-flying-airplane-62623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/712618/pexels-photo-712618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       ]
     }
   ]

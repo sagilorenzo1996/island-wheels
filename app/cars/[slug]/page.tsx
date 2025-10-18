@@ -1,6 +1,7 @@
 import { FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
+import CarGallery from './CarGallery'; // <-- Import the new client component
 
-// ... (getCars, generateStaticParams, getCar functions are unchanged) ...
+// --- Data Fetching (Server-side) ---
 async function getCars() {
   const fs = require('fs');
   const path = require('path');
@@ -15,6 +16,7 @@ async function getCars() {
   }
 }
 
+// --- Static Page Generation (Server-side) ---
 export async function generateStaticParams() {
   const cars = await getCars();
   return cars.map((car) => ({
@@ -27,7 +29,7 @@ async function getCar(slug) {
   return cars.find((car) => car.slug === slug);
 }
 
-
+// --- The Page Component (Server-side) ---
 export default async function CarDetailPage({ params }) {
   const car = await getCar(params.slug);
 
@@ -38,34 +40,32 @@ export default async function CarDetailPage({ params }) {
   const carName = `${car.year} ${car.make} ${car.model}`;
   const mailtoLink = `mailto:info.islandwheels@gmail.com?subject=Inquiry%20for%20${encodeURIComponent(carName)}&body=I'm%20interested%in%20the%20${encodeURIComponent(carName)}%20(VIN:%20${car.vin}).%0D%0APlease%20provide%20more%20details.`;
 
-
   return (
     <div className="bg-iw-secondary">
       <div className="container mx-auto px-4 py-12">
         
-        {/* Title */}
         <h1 className="text-4xl font-bold text-iw-text-primary mb-2">{carName}</h1>
         
-        {/* Price and Disclaimer */}
         <p className="text-2xl text-iw-accent-orange font-semibold">{car.price_display}</p>
+        
+        {car.price_million && (
+          <p className="text-iw-text-secondary font-semibold text-lg">
+            {car.price_million}
+          </p>
+        )}
+        
         <p className="text-sm text-iw-text-secondary italic mt-1 mb-6">
           *Price subject to government import taxes and policy changes.
         </p>
-
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           {/* Left Column: Gallery & Details */}
           <div className="lg:col-span-2">
-            {/* Gallery */}
-            <div className="w-full bg-black rounded-lg overflow-hidden mb-6 border border-iw-accent-orange/20">
-              <img src={car.gallery[0]} alt="Main" className="w-full h-auto object-cover" />
-            </div>
-            <div className="grid grid-cols-3 gap-2">
-              {car.gallery.slice(1).map((img, index) => (
-                <img key={index} src={img} alt={`View ${index + 1}`} className="w-full h-32 object-cover rounded-md cursor-pointer border border-iw-accent-orange/10" />
-              ))}
-            </div>
+            
+            {/* --- GALLERY CLIENT COMPONENT --- */}
+            {/* We pass the server-fetched data (car.gallery) to the Client Component */}
+            <CarGallery gallery={car.gallery} />
 
             {/* Description */}
             <div className="mt-8 glassmorphism p-6 rounded-lg">
@@ -94,26 +94,25 @@ export default async function CarDetailPage({ params }) {
             <div className="sticky top-28 glassmorphism p-6 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold text-iw-accent-orange text-center mb-6">Interested in this car?</h3>
               
-              {/* CTAs */}
               <div className="space-y-3">
                 <a 
-                  href="https://wa.me/94771234567" // <-- REPLACE
+                  href="https://wa.me/94711008070"
                   target="_blank" 
-                  className="cta-button-whatsapp w-full" // <-- Simplified
+                  className="cta-button-whatsapp w-full"
                 >
                   <FaWhatsapp size={20} />
                   <span>Chat on WhatsApp</span>
                 </a>
                 <a 
-                  href="tel:+94771234567" // <-- REPLACE
-                  className="cta-button-outline w-full" // <-- Simplified
+                  href="tel:+94711008070"
+                  className="cta-button-outline w-full"
                 >
                   <FaPhone size={18} />
                   <span>Call Us Direct</span>
                 </a>
                 <a 
                   href={mailtoLink}
-                  className="cta-button-orange w-full" // <-- Simplified
+                  className="cta-button-orange w-full"
                 >
                   <FaEnvelope size={18} />
                   <span>Email Us for Info</span>
@@ -121,7 +120,6 @@ export default async function CarDetailPage({ params }) {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

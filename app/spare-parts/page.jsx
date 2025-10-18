@@ -45,7 +45,6 @@ export default function SparePartsPage() {
         <h2 className="text-3xl font-bold text-center mb-10">How to Order Parts</h2>
         <div className="space-y-8">
           
-          {/* Step 1: Chassis Number */}
           <div className="flex flex-col md:flex-row items-center gap-6">
             <FaRegIdCard className="text-iw-accent-orange text-6xl flex-shrink-0" />
             <div>
@@ -60,7 +59,6 @@ export default function SparePartsPage() {
             </div>
           </div>
           
-          {/* Step 2: Import Time */}
           <div className="flex flex-col md:flex-row items-center gap-6">
             <FaShippingFast className="text-iw-accent-orange text-6xl flex-shrink-0" />
             <div>
@@ -75,14 +73,14 @@ export default function SparePartsPage() {
         </div>
       </div>
       
-      {/* CTA Section */}
+      {/* CTA Section - UPDATED */}
       <div className="bg-iw-primary">
         <div className="container-main text-center">
           <h2 className="text-3xl font-bold mb-8">Ready to Order?</h2>
           <p className="text-lg text-iw-text-secondary mb-8 max-w-2xl mx-auto">Send us your chassis number and the parts you need via WhatsApp for the fastest service.</p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link
-              href="https://wa.me/94771234567" // <-- REPLACE
+              href="https://wa.me/94711008070"
               target="_blank"
               className="cta-button-whatsapp w-full md:w-auto"
             >

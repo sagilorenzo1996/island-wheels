@@ -18,7 +18,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           
-          {/* Left Column: Contact Details */}
+          {/* Left Column: Contact Details - UPDATED */}
           <motion.div 
             className="space-y-8 glassmorphism p-8 rounded-lg"
             initial={{ opacity: 0, x: -20 }}
@@ -27,14 +27,14 @@ export default function ContactPage() {
           >
             <h3 className="text-2xl font-semibold text-iw-accent-orange">Get in Touch Directly</h3>
             <a 
-              href="tel:+94771234567" // <-- REPLACE
+              href="tel:+94711008070"
               className="flex items-center gap-4 group"
             >
               <FaPhone className="text-iw-accent-orange w-6 h-6" />
-              <span className="text-lg text-iw-text-primary group-hover:text-iw-accent-orange transition-colors">+94 77 123 4567</span>
+              <span className="text-lg text-iw-text-primary group-hover:text-iw-accent-orange transition-colors">+94 71 100 8070</span>
             </a>
             <a 
-              href="https://wa.me/94771234567" // <-- REPLACE
+              href="https://wa.me/94711008070"
               target="_blank" 
               className="flex items-center gap-4 group"
             >
@@ -67,14 +67,13 @@ export default function ContactPage() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15843.60601618331!2d79.84368153955078!3d6.903780800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2sGalle%20Face%20Green!5e0!3m2!1sen!2slk!4v1678888888888"
               width="100%"
               height="100%"
-              className="rounded-md filter invert(100%) hue-rotate(180deg) contrast(0.9)" // <-- DARK MODE MAP
+              className="rounded-md filter invert(100%) hue-rotate(180deg) contrast(0.9)" // DARK MODE MAP
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </motion.div>
-
         </div>
       </div>
     </motion.div>

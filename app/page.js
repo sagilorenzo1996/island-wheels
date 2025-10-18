@@ -1,11 +1,11 @@
 'use client'
 import Link from 'next/link';
-import Image from 'next/image'; // We need this for the brand logos
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaQuoteLeft } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
 
-// --- (Featured Cars, Social Links, Customer Reviews, Brand Logos arrays are unchanged) ---
+// --- 1. UPDATED featuredCars ARRAY ---
 const featuredCars = [
   {
     "id": 1,
@@ -14,6 +14,7 @@ const featuredCars = [
     "model": "Land Cruiser ZX",
     "year": 2022,
     "price_display": "LKR 18,500,000 Upwards",
+    "price_million": "(18.5 Million LKR)",
     "mileage": 15000,
     "source": "Japan Import",
     "image": "https://images.pexels.com/photos/1164778/pexels-photo-1164778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
@@ -25,17 +26,19 @@ const featuredCars = [
     "model": "Defender 110",
     "year": 2021,
     "price_display": "LKR 15,000,000 Upwards",
+    "price_million": "(15 Million LKR)",
     "mileage": 22000,
     "source": "UK Import",
     "image": "https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
   }
 ];
 
+// --- (socialLinks, customerReviews, brandLogos arrays are unchanged) ---
 const socialLinks = [
-  { href: 'https://facebook.com/your-handle', icon: FaFacebook, label: 'Facebook' },
-  { href: 'https://instagram.com/your-handle', icon: FaInstagram, label: 'Instagram' },
-  { href: 'https://tiktok.com/@your-handle', icon: FaTiktok, label: 'TikTok' },
-  { href: 'https://wa.me/94771234567', icon: FaWhatsapp, label: 'WhatsApp' },
+  { href: 'https://www.facebook.com/share/18d4yc7C3p/?mibextid=wwXIfr', icon: FaFacebook, label: 'Facebook' },
+  { href: 'https://www.instagram.com/islandwheels.lk', icon: FaInstagram, label: 'Instagram' },
+  { href: 'https://www.tiktok.com/@islandwheelslk', icon: FaTiktok, label: 'TikTok' },
+  { href: 'https://wa.me/94711008070', icon: FaWhatsapp, label: 'WhatsApp' },
 ];
 
 const customerReviews = [
@@ -64,7 +67,7 @@ const brandLogos = [
   { src: '/brands/mercedes.jpg', alt: 'Mercedes-Benz Logo' },
 ];
 
-// --- (FeaturedCarCard and ReviewCard components are unchanged) ---
+// --- 2. UPDATED FeaturedCarCard COMPONENT ---
 function FeaturedCarCard({ car }) {
   return (
     <motion.div 
@@ -74,10 +77,21 @@ function FeaturedCarCard({ car }) {
       <img src={car.image} alt={`${car.make} ${car.model}`} className="w-full h-56 object-cover" />
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-iw-text-primary">{car.make} {car.model}</h3>
+        
+        {/* Price and Disclaimer */}
         <p className="text-iw-accent-orange font-semibold mt-1">{car.price_display}</p>
+        
+        {/* --- NEW PRICE IN MILLIONS --- */}
+        {car.price_million && (
+          <p className="text-iw-text-secondary font-semibold text-sm">
+            {car.price_million}
+          </p>
+        )}
+        
         <p className="text-xs text-iw-text-secondary italic mt-1">
           *Price subject to gov. taxes & policy changes.
         </p>
+
         <div className="grid grid-cols-2 gap-2 text-sm text-iw-text-secondary mt-4">
           <span>{car.year}</span>
           <span>{car.mileage.toLocaleString()} km</span>
@@ -93,6 +107,7 @@ function FeaturedCarCard({ car }) {
   );
 }
 
+// --- (ReviewCard and BrandLogoCard components are unchanged) ---
 function ReviewCard({ review }) {
   return (
     <motion.div
@@ -153,7 +168,7 @@ export default function Home() {
   return (
     <div>
 
-      {/* --- FIXED BACKGROUND --- */}
+      {/* --- (Fixed Background and Hero Section are unchanged) --- */}
       <div 
         className="fixed inset-0 z-[-10] bg-cover bg-center bg-no-repeat opacity-30"
         style={{ 
@@ -161,9 +176,7 @@ export default function Home() {
         }}
       />
       
-      {/* 1. Hero Section - UPDATED */}
       <section className="relative h-[60vh] min-h-[400px] md:h-[80vh] md:min-h-[500px] bg-iw-primary/70 text-white flex items-center justify-center">
-        
         <motion.div 
           className="relative z-10 text-center p-4"
           initial={{ opacity: 0, y: 20 }}
@@ -184,7 +197,6 @@ export default function Home() {
               On-Demand Sourcing
             </Link>
           </div>
-
           <div className="mt-12">
             <a
               href="tel:+94711008070"
@@ -195,7 +207,6 @@ export default function Home() {
               <span>Call Us: +94 71 100 8070</span>
             </a>
           </div>
-
           <div className="flex justify-center space-x-6 mt-6">
             {socialLinks.map((social) => (
               <a
@@ -210,11 +221,10 @@ export default function Home() {
               </a>
             ))}
           </div>
-          
         </motion.div>
       </section>
 
-      {/* 2. Featured Cars Section */}
+      {/* --- (Featured Cars Section is unchanged, it will use the updated component) --- */}
       <section className="container-main bg-iw-primary relative">
         <h2 className="text-3xl font-bold text-center text-iw-text-primary mb-8">
           Featured Vehicles
@@ -226,7 +236,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Services Summary Section - UPDATED */}
+      {/* --- (Services Summary Section is unchanged) --- */}
       <section className="bg-iw-secondary relative">
         <div className="container-main grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
@@ -244,7 +254,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Customer Review Section */}
+      {/* --- (Customer Review Section is unchanged) --- */}
       <section className="container-main bg-iw-primary relative">
         <h2 className="text-3xl font-bold text-center text-iw-text-primary mb-12 text-glow">
           What Our Clients Say
@@ -253,8 +263,8 @@ export default function Home() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible" // Animation triggers when you scroll to it
-          viewport={{ once: true, amount: 0.5 }} // Ensures animation runs once
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
         >
           {customerReviews.map((review, index) => (
             <ReviewCard key={index} review={review} />
@@ -262,7 +272,7 @@ export default function Home() {
         </motion.div>
       </section>
       
-      {/* 5. Trust Signals Section (with Logos) - UPDATED */}
+      {/* --- (Trust Signals Section is unchanged) --- */}
       <section className="container-main text-center border-t border-iw-accent-orange/10 bg-iw-primary relative">
         <h2 className="text-2xl font-bold text-iw-text-primary mb-6">Your Trusted Partner in Premium Imports</h2>
         <p className="text-lg text-iw-text-secondary max-w-3xl mx-auto mb-12">
