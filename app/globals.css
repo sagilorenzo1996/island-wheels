@@ -1,26 +1,61 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-iw-primary text-iw-text-primary;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply text-iw-text-primary font-bold;
+}
+
+h1 {
+  @apply text-4xl md:text-5xl;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+
+/* New Orange Button Style */
+.cta-button-orange {
+  @apply inline-flex items-center justify-center gap-2 bg-iw-accent-orange text-iw-primary font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 ease-in-out hover:shadow-lg hover:shadow-iw-accent-orange/50 hover:scale-105;
+}
+
+.cta-button-outline {
+   @apply inline-flex items-center justify-center gap-2 bg-transparent border-2 border-iw-accent-orange text-iw-accent-orange font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 ease-in-out hover:bg-iw-accent-orange hover:text-iw-primary;
+}
+
+.cta-button-whatsapp {
+  @apply inline-flex items-center justify-center gap-2 bg-green-500 text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg hover:shadow-green-500/50;
+}
+
+.container-main {
+  @apply container mx-auto px-4 py-16;
+}
+
+/* Updated Glassmorphism for Black Theme */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.03); /* Subtle white glass on black */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(244, 107, 22, 0.2); /* Orange border */
+}
+
+/* Orange Text Glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #f46b16, 0 0 10px #f46b16;
+  }
+  50% {
+    text-shadow: 0 0 10px #f46b16, 0 0 20px #f46b16;
+  }
+}
+.text-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
