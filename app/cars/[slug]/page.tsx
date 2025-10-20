@@ -1,4 +1,4 @@
-import { FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
+import { FaWhatsapp, FaPhone, FaEnvelope, FaCheckCircle, FaInfoCircle  } from 'react-icons/fa';
 import CarGallery from './CarGallery'; // <-- Import the new client component
 
 // --- Data Fetching (Server-side) ---
@@ -31,7 +31,8 @@ async function getCar(slug) {
 
 // --- The Page Component (Server-side) ---
 export default async function CarDetailPage({ params }) {
-  const car = await getCar(params.slug);
+  const { slug } = params;
+  const car = await getCar(slug);
 
   if (!car) {
     return <p className="container-main text-center">Car not found.</p>;
@@ -87,6 +88,51 @@ export default async function CarDetailPage({ params }) {
                 <div className="p-2"><strong className="text-iw-text-primary">VIN:</strong> {car.vin}</div>
               </div>
             </div>
+            {(car.pros?.length > 0 || car.cons?.length > 0) && (
+              <div className="mt-8 glassmorphism p-6 rounded-lg">
+                <h3 className="text-2xl font-semibold text-iw-accent-orange mb-6">The Island Wheels Verdict</h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  
+                  {/* Pros List */}
+                  {car.pros?.length > 0 && (
+                    <div>
+                      <h4 className="flex items-center gap-2 text-xl font-semibold text-iw-text-primary mb-3">
+                        <FaCheckCircle className="text-green-500" />
+                        What We Love
+                      </h4>
+                      <ul className="space-y-2 list-inside">
+                        {car.pros.map((pro, index) => (
+                          <li key={index} className="text-iw-text-secondary flex gap-2">
+                            <span className="text-iw-accent-orange mt-1.5">-</span>
+                            <span>{pro}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Cons List */}
+                  {car.cons?.length > 0 && (
+                    <div>
+                      <h4 className="flex items-center gap-2 text-xl font-semibold text-iw-text-primary mb-3">
+                        <FaInfoCircle className="text-yellow-500" />
+                        Good to Know
+                      </h4>
+                      <ul className="space-y-2 list-inside">
+                        {car.cons.map((con, index) => (
+                          <li key={index} className="text-iw-text-secondary flex gap-2">
+                            <span className="text-iw-accent-orange mt-1.5">-</span>
+                            <span>{con}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Right Column: Inquiry Form & CTAs */}
@@ -108,7 +154,7 @@ export default async function CarDetailPage({ params }) {
                   className="cta-button-outline w-full"
                 >
                   <FaPhone size={18} />
-                  <span>Call Us Direct</span>
+                  <span>Call Us Directly</span>
                 </a>
                 <a 
                   href={mailtoLink}

@@ -23,6 +23,15 @@
         "https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/112460/pexels-photo-112460.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/97353/pexels-photo-97353.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "pros": [
+        "Unmatched long-term reliability and resale value.",
+        "Ultimate combination of luxury and true off-road power.",
+        "Brand new 3.3L V6 diesel is both powerful and efficient."
+      ],
+      "cons": [
+        "Large size can be difficult to manage in tight city streets.",
+        "Premium vehicle with corresponding high-end running costs."
       ]
     },
     {
@@ -49,6 +58,15 @@
         "https://images.pexels.com/photos/10394781/pexels-photo-10394781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/110822/pexels-photo-110822.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "pros": [
+        "Iconic, head-turning design.",
+        "Extremely capable off-roader with modern air suspension.",
+        "Tech-filled and luxurious interior."
+      ],
+      "cons": [
+        "Long-term reliability is not as proven as its Japanese rivals.",
+        "Parts and servicing are at a premium price point."
       ]
     },
     {
@@ -75,6 +93,15 @@
         "https://images.pexels.com/photos/136872/pexels-photo-136872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.pexels.com/photos/712618/pexels-photo-712618.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+      ],
+      "pros": [
+        "Mind-bending acceleration and supercar performance.",
+        "Infinitely tunable and massive aftermarket support.",
+        "A true JDM legend."
+      ],
+      "cons": [
+        "Very stiff ride, not ideal for a comfortable daily driver.",
+        "High-performance vehicle with very high maintenance costs."
       ]
     }
   ]

@@ -68,7 +68,7 @@ export default function CarsPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        Our Inventory
+        Vehicles
       </motion.h1>
       
       {/* Filters Section */}

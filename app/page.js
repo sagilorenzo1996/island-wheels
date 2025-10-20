@@ -4,34 +4,9 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaFacebook, FaInstagram, FaTiktok, FaWhatsapp, FaQuoteLeft } from 'react-icons/fa';
 import { FiPhoneCall } from 'react-icons/fi';
+import { useState, useEffect } from 'react';
 
 // --- 1. UPDATED featuredCars ARRAY ---
-const featuredCars = [
-  {
-    "id": 1,
-    "slug": "2022-toyota-land-cruiser-zx",
-    "make": "Toyota",
-    "model": "Land Cruiser ZX",
-    "year": 2022,
-    "price_display": "LKR 18,500,000 Upwards",
-    "price_million": "(18.5 Million LKR)",
-    "mileage": 15000,
-    "source": "Japan Import",
-    "image": "https://images.pexels.com/photos/1164778/pexels-photo-1164778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  },
-  {
-    "id": 2,
-    "slug": "2021-land-rover-defender-110",
-    "make": "Land Rover",
-    "model": "Defender 110",
-    "year": 2021,
-    "price_display": "LKR 15,000,000 Upwards",
-    "price_million": "(15 Million LKR)",
-    "mileage": 22000,
-    "source": "UK Import",
-    "image": "https://images.pexels.com/photos/627678/pexels-photo-627678.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-  }
-];
 
 // --- (socialLinks, customerReviews, brandLogos arrays are unchanged) ---
 const socialLinks = [
@@ -65,6 +40,11 @@ const brandLogos = [
   { src: '/brands/ford.jpg', alt: 'Ford Logo' },
   { src: '/brands/bmw.jpg', alt: 'BMW Logo' },
   { src: '/brands/mercedes.jpg', alt: 'Mercedes-Benz Logo' },
+  { src: '/brands/audi.jpg', alt: 'Audi Logo' },
+  { src: '/brands/nissan.jpg', alt: 'Nissan Logo' },
+  { src: '/brands/landrover.jpg', alt: 'Land Rover Logo' },
+  { src: '/brands/alfaromeo.jpg', alt: 'Alfa Romeo Logo' },
+  { src: '/brands/volkswagen.jpg', alt: 'Volkswagen Logo' }
 ];
 
 // --- 2. UPDATED FeaturedCarCard COMPONENT ---
@@ -165,6 +145,22 @@ const containerVariants = {
 
 
 export default function Home() {
+  const [featuredCars, setFeaturedCars] = useState([]);
+
+  useEffect(() => {
+    const fetchFeaturedCars = async () => {
+      try {
+        const response = await fetch('/featured.json');
+        const data = await response.json();
+        setFeaturedCars(data);
+      } catch (error) {
+        console.error("Failed to fetch featured cars:", error);
+      }
+    };
+
+    fetchFeaturedCars();
+  }, []);
+
   return (
     <div>
 
@@ -176,7 +172,7 @@ export default function Home() {
         }}
       />
       
-      <section className="relative h-[60vh] min-h-[400px] md:h-[80vh] md:min-h-[500px] bg-iw-primary/70 text-white flex items-center justify-center">
+      <section className="relative h-[60vh] min-h-[400px] md:h-[80vh] md:min-h-[500px] bg-iw-primary/70 text-white flex items-center justify-center pt-20 sm:pt-0">
         <motion.div 
           className="relative z-10 text-center p-4"
           initial={{ opacity: 0, y: 20 }}
@@ -191,7 +187,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <Link href="/cars" className="cta-button-orange">
-              View Inventory
+              View Vehicles
             </Link>
             <Link href="/service" className="cta-button-outline">
               On-Demand Sourcing

@@ -111,6 +111,12 @@ export default function AboutPage() {
                 imgSrc="/team/hasitha.png" // <-- Added image path
                 onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } }}
               />
+              <TeamMemberCard 
+              name="Kaushan Dissanayake" 
+              title="UK Operations"
+              imgSrc="/team/hasitha.png" // <-- Added image path
+              onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } }}
+            />
             </div>
           </div>
 
