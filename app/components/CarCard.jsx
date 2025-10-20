@@ -38,7 +38,8 @@ export default function CarCard({ car }) {
         
         <div className="grid grid-cols-2 gap-2 text-sm text-iw-text-secondary mt-4">
           <span><strong>Year:</strong> {car.year}</span>
-          <span><strong>Mileage:</strong> {car.mileage.toLocaleString()} km</span>
+          {/* <span><strong>Mileage:</strong> {car.mileage.toLocaleString()} km</span> */}
+          <span><strong>Mileage:</strong> {car.mileage.toLocaleString()} </span>
           <span><strong>Body:</strong> {car.body_type}</span>
           <span><strong>Source:</strong> {car.source}</span>
         </div>

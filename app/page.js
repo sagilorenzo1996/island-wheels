@@ -166,7 +166,7 @@ export default function Home() {
 
       {/* --- (Fixed Background and Hero Section are unchanged) --- */}
       <div 
-        className="fixed inset-0 z-[-10] bg-cover bg-center bg-no-repeat opacity-30"
+        className="fixed inset-0 z-[-10] bg-cover bg-center bg-no-repeat opacity-50"
         style={{ 
           backgroundImage: 'url(/hero-background.jpg)' 
         }}

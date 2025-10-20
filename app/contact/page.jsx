@@ -51,7 +51,7 @@ export default function ContactPage() {
             <div className="flex items-start gap-4">
               <FaMapMarkerAlt className="text-iw-accent-orange w-6 h-6 mt-1" />
               <span className="text-lg text-iw-text-primary">
-                123, Galle Road, Colombo 03,<br />Sri Lanka
+               94-02/07 York Street Colombo 01<br />Sri Lanka
               </span>
             </div>
           </motion.div>
@@ -63,8 +63,9 @@ export default function ContactPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
+
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15843.60601618331!2d79.84368153955078!3d6.903780800000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25963120b1509%3A0x2db2c18a68712863!2sGalle%20Face%20Green!5e0!3m2!1sen!2slk!4v1678888888888"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.1685873833762!2d79.84207087448291!3d6.934128518256416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259243941ce5f%3A0x4d80629a455da75!2s94%20York%20St%2C%20Colombo%201!5e1!3m2!1sen!2slk!4v1760978179156!5m2!1sen!2slk"
               width="100%"
               height="100%"
               className="rounded-md filter invert(100%) hue-rotate(180deg) contrast(0.9)" // DARK MODE MAP

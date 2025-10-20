@@ -39,7 +39,7 @@ export default async function CarDetailPage({ params }) {
   }
   
   const carName = `${car.year} ${car.make} ${car.model}`;
-  const mailtoLink = `mailto:info.islandwheels@gmail.com?subject=Inquiry%20for%20${encodeURIComponent(carName)}&body=I'm%20interested%in%20the%20${encodeURIComponent(carName)}%20(VIN:%20${car.vin}).%0D%0APlease%20provide%20more%20details.`;
+  const mailtoLink = `mailto:info.islandwheels@gmail.com?subject=Inquiry%20for%20${encodeURIComponent(carName)}&body=I'm%20interested%in%20the%20${encodeURIComponent(carName)}%20(Model:%20${car.vin}).%0D%0APlease%20provide%20more%20details.`;
 
   return (
     <div className="bg-iw-secondary">
@@ -81,11 +81,12 @@ export default async function CarDetailPage({ params }) {
                 <div className="p-2"><strong className="text-iw-text-primary">Make:</strong> {car.make}</div>
                 <div className="p-2"><strong className="text-iw-text-primary">Model:</strong> {car.model}</div>
                 <div className="p-2"><strong className="text-iw-text-primary">Year:</strong> {car.year}</div>
-                <div className="p-2"><strong className="text-iw-text-primary">Mileage:</strong> {car.mileage.toLocaleString()} km</div>
+                {/* <div className="p-2"><strong className="text-iw-text-primary">Mileage:</strong> {car.mileage.toLocaleString()} km</div> */}
+                <div className="p-2"><strong className="text-iw-text-primary">Mileage:</strong> {car.mileage.toLocaleString()}</div>
                 <div className="p-2"><strong className="text-iw-text-primary">Engine:</strong> {car.engine}</div>
                 <div className="p-2"><strong className="text-iw-text-primary">Body Type:</strong> {car.body_type}</div>
                 <div className="p-2"><strong className="text-iw-text-primary">Source:</strong> {car.source}</div>
-                <div className="p-2"><strong className="text-iw-text-primary">VIN:</strong> {car.vin}</div>
+                <div className="p-2"><strong className="text-iw-text-primary">Model:</strong> {car.vin}</div>
               </div>
             </div>
             {(car.pros?.length > 0 || car.cons?.length > 0) && (

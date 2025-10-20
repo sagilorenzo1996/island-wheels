@@ -8,7 +8,7 @@ export default function CarGallery({ gallery }) {
   const [selectedImage, setSelectedImage] = useState(gallery[0]);
 
   // The rest of the images are thumbnails
-  const thumbnails = gallery.slice(0, 5); // Ensure we only ever show 5
+  const thumbnails = gallery; // Ensure we only ever show 5
 
   // Auto-scroll effect
   useEffect(() => {
@@ -37,7 +37,7 @@ export default function CarGallery({ gallery }) {
         <AnimatePresence mode="wait">
           <motion.img
             key={selectedImage} // This makes the animation re-run when the src changes
-            src={selectedImage}
+            src={selectedImage.startsWith('/') ? selectedImage : `/${selectedImage}`}
             alt="Main car view"
             className="w-full h-full object-contain" // <-- Use object-contain to fit the image within the fixed height
             initial={{ opacity: 0 }}
@@ -48,8 +48,8 @@ export default function CarGallery({ gallery }) {
         </AnimatePresence>
       </div>
       
-      {/* Thumbnail Grid (shows 5) */}
-      <div className="grid grid-cols-5 gap-2">
+      {/* Thumbnail Grid */}
+      <div className="flex flex-nowrap gap-2 overflow-x-auto pb-2">
         {thumbnails.map((img, index) => (
           <div
             key={index}
@@ -61,7 +61,7 @@ export default function CarGallery({ gallery }) {
             onClick={() => setSelectedImage(img)}
           >
             <img 
-              src={img} 
+              src={img.startsWith('/') ? img : `/${img}`} 
               alt={`View ${index + 1}`} 
               className="w-full h-20 md:h-28 object-cover" 
             />

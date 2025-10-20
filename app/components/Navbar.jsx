@@ -36,7 +36,7 @@ export default function Navbar() {
             <Image
               src="/logo.png"
               alt="Island Wheels Logo"
-              width={180}
+              width={160}
               height={40}
               className="object-contain"
               priority
