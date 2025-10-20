@@ -27,7 +27,7 @@ export default function CarsPage() {
 
   // Fetch car data from the JSON file
   useEffect(() => {
-    fetch('/inventory.json')
+    fetch(`/inventory.json?timestamp=${new Date().getTime()}`)
       .then(res => res.json())
       .then(data => {
         setCars(data);
