@@ -30,8 +30,8 @@ async function getCar(slug) {
 }
 
 // --- The Page Component (Server-side) ---
-export default async function CarDetailPage({ params }) {
-  const { slug } = params;
+export default async function CarDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = await params;
   const car = await getCar(slug);
 
   if (!car) {
