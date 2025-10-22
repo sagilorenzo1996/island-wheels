@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 // Animation for each card
 const cardVariants = {
@@ -9,6 +10,14 @@ const cardVariants = {
 };
 
 export default function CarCard({ car }) {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = car.image1;
+    img.onload = () => setImageLoaded(true);
+  }, [car.image1]);
+
   return (
     <motion.div
       className="glassmorphism rounded-lg shadow-xl overflow-hidden flex flex-col"
@@ -17,7 +26,21 @@ export default function CarCard({ car }) {
       transition={{ type: "spring", stiffness: 300 }}
     >
       <Link href={`/cars/${car.slug}`}>
-        <img src={car.image1} alt={`${car.make} ${car.model}`} className="w-full h-56 object-cover hover:opacity-90 transition-opacity" />
+        {!imageLoaded && (
+          <div className="w-full h-56 flex items-center justify-center bg-gray-200 animate-pulse">
+            <motion.div
+              className="w-12 h-12 border-4 border-iw-accent-orange border-t-transparent rounded-full"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            />
+          </div>
+        )}
+        <img
+          src={car.image1}
+          alt={`${car.make} ${car.model}`}
+          className={`w-full h-56 object-cover ${imageLoaded ? 'block' : 'hidden'} hover:opacity-90 transition-opacity`}
+          onLoad={() => setImageLoaded(true)}
+        />
       </Link>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-iw-text-primary">{car.make} {car.model}</h3>
