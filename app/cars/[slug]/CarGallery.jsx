@@ -47,7 +47,12 @@ export default function CarGallery({ image1, image2, image3, image4, image5, ima
           {selectedImage && (
             <motion.img
               key={selectedImage} // This makes the animation re-run when the src changes
-              src={selectedImage.startsWith('/') ? selectedImage : `/${selectedImage}`}
+              src={(() => {
+                const isAbsoluteUrl = selectedImage.startsWith('http://') || selectedImage.startsWith('https://');
+                const imgSrc = isAbsoluteUrl ? selectedImage : (selectedImage.startsWith('/') ? selectedImage : `/${selectedImage}`);
+                console.log('Attempting to load image:', imgSrc);
+                return imgSrc;
+              })()}
               alt="Main car view"
               className="w-full h-full object-contain" // <-- Use object-contain to fit the image within the fixed height
               initial={{ opacity: 0 }}
@@ -72,7 +77,12 @@ export default function CarGallery({ image1, image2, image3, image4, image5, ima
             onClick={() => setSelectedImage(img)}
           >
             <img 
-              src={img.startsWith('/') ? img : `/${img}`} 
+              src={(() => {
+                const isAbsoluteUrl = img.startsWith('http://') || img.startsWith('https://');
+                const imgSrc = isAbsoluteUrl ? img : (img.startsWith('/') ? img : `/${img}`);
+                console.log('Attempting to load thumbnail:', imgSrc);
+                return imgSrc;
+              })()} 
               alt={`View ${index + 1}`} 
               className="w-full h-20 md:h-28 object-cover" 
             />

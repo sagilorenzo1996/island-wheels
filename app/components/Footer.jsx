@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-iw-accent-orange/20 mt-8 pt-8 text-center text-sm">
-          <p>© {new Date().getFullYear()} Island Wheels. All rights reserved. Website by [Your Name/Company].</p>
+          <p>© {new Date().getFullYear()} Island Wheels. All rights reserved. Website by Island Wheels.</p>
         </div>
       </div>
     </footer>

@@ -24,14 +24,16 @@ export default function CarsPage() {
     year: '',
     price: '',
   });
+  const [loading, setLoading] = useState(true); // Add loading state
 
-  // Fetch car data from the JSON file
+  // Fetch car data from the API endpoint
   useEffect(() => {
-    fetch(`/inventory.json?timestamp=${new Date().getTime()}`)
+    fetch('/api/cars') // Fetch from the new API endpoint
       .then(res => res.json())
       .then(data => {
         setCars(data);
         setFilteredCars(data);
+        setLoading(false); // Set loading to false after data is fetched
       });
   }, []);
 
@@ -74,13 +76,13 @@ export default function CarsPage() {
       {/* Filters Section */}
       <div className="glassmorphism p-6 rounded-lg shadow-md mb-8 grid grid-cols-1 md:grid-cols-4 gap-4">
         <select name="make" onChange={handleFilterChange} className="form-select w-full rounded-md bg-iw-secondary text-iw-text-primary border-iw-accent-orange/20">
-          <option value="">All Makes</option>
-          {makes.map(make => <option key={make} value={make}>{make}</option>)}
+          <option key="all-makes-option" value="">All Makes</option>
+          {makes.map((make, index) => <option key={`${make}-${index}`} value={make}>{make}</option>)}
         </select>
 
         <select name="body_type" onChange={handleFilterChange} className="form-select w-full rounded-md bg-iw-secondary text-iw-text-primary border-iw-accent-orange/20">
-          <option value="">All Body Types</option>
-          {bodyTypes.map(type => <option key={type} value={type}>{type}</option>)}
+          <option key="all-body-types-option" value="">All Body Types</option>
+          {bodyTypes.map((type, index) => <option key={`${type}-${index}`} value={type}>{type}</option>)}
         </select>
         
         <input type="text" placeholder="Min Year" name="year" className="form-input w-full rounded-md bg-iw-secondary text-iw-text-primary border-iw-accent-orange/20" />
@@ -88,15 +90,17 @@ export default function CarsPage() {
       </div>
 
       {/* Car Grid */}
-      {filteredCars.length > 0 ? (
+      {loading ? (
+        <div className="text-center text-lg text-iw-text-secondary">Loading vehicles...</div>
+      ) : filteredCars.length > 0 ? (
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          {filteredCars.map(car => (
-            <CarCard key={car.id} car={car} />
+          {filteredCars.map((car, index) => (
+            <CarCard key={`${car.id}-${index}`} car={car} />
           ))}
         </motion.div>
       ) : (
