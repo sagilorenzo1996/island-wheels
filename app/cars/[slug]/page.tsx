@@ -66,7 +66,14 @@ export default async function CarDetailPage({ params }: { params: { slug: string
             
             {/* --- GALLERY CLIENT COMPONENT --- */}
             {/* We pass the server-fetched data (car.gallery) to the Client Component */}
-            <CarGallery gallery={car.gallery} />
+            <CarGallery 
+              image1={car.image1}
+              image2={car.image2}
+              image3={car.image3}
+              image4={car.image4}
+              image5={car.image5}
+              image6={car.image6}
+            />
 
             {/* Description */}
             <div className="mt-8 glassmorphism p-6 rounded-lg">
@@ -89,44 +96,68 @@ export default async function CarDetailPage({ params }: { params: { slug: string
                 <div className="p-2"><strong className="text-iw-text-primary">Model:</strong> {car.vin}</div>
               </div>
             </div>
-            {(car.pros?.length > 0 || car.cons?.length > 0) && (
+            {(car.pros1 || car.pros2 || car.pros3 || car.cons1 || car.cons2 || car.cons3) && (
               <div className="mt-8 glassmorphism p-6 rounded-lg">
                 <h3 className="text-2xl font-semibold text-iw-accent-orange mb-6">The Island Wheels Verdict</h3>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   
                   {/* Pros List */}
-                  {car.pros?.length > 0 && (
+                  {(car.pros1 || car.pros2 || car.pros3) && (
                     <div>
                       <h4 className="flex items-center gap-2 text-xl font-semibold text-iw-text-primary mb-3">
                         <FaCheckCircle className="text-green-500" />
                         What We Love
                       </h4>
                       <ul className="space-y-2 list-inside">
-                        {car.pros.map((pro, index) => (
-                          <li key={index} className="text-iw-text-secondary flex gap-2">
+                        {car.pros1 && (
+                          <li className="text-iw-text-secondary flex gap-2">
                             <span className="text-iw-accent-orange mt-1.5">-</span>
-                            <span>{pro}</span>
+                            <span>{car.pros1}</span>
                           </li>
-                        ))}
+                        )}
+                        {car.pros2 && (
+                          <li className="text-iw-text-secondary flex gap-2">
+                            <span className="text-iw-accent-orange mt-1.5">-</span>
+                            <span>{car.pros2}</span>
+                          </li>
+                        )}
+                        {car.pros3 && (
+                          <li className="text-iw-text-secondary flex gap-2">
+                            <span className="text-iw-accent-orange mt-1.5">-</span>
+                            <span>{car.pros3}</span>
+                          </li>
+                        )}
                       </ul>
                     </div>
                   )}
 
                   {/* Cons List */}
-                  {car.cons?.length > 0 && (
+                  {(car.cons1 || car.cons2 || car.cons3) && (
                     <div>
                       <h4 className="flex items-center gap-2 text-xl font-semibold text-iw-text-primary mb-3">
                         <FaInfoCircle className="text-yellow-500" />
                         Good to Know
                       </h4>
                       <ul className="space-y-2 list-inside">
-                        {car.cons.map((con, index) => (
-                          <li key={index} className="text-iw-text-secondary flex gap-2">
+                        {car.cons1 && (
+                          <li className="text-iw-text-secondary flex gap-2">
                             <span className="text-iw-accent-orange mt-1.5">-</span>
-                            <span>{con}</span>
+                            <span>{car.cons1}</span>
                           </li>
-                        ))}
+                        )}
+                        {car.cons2 && (
+                          <li className="text-iw-text-secondary flex gap-2">
+                            <span className="text-iw-accent-orange mt-1.5">-</span>
+                            <span>{car.cons2}</span>
+                          </li>
+                        )}
+                        {car.cons3 && (
+                          <li className="text-iw-text-secondary flex gap-2">
+                            <span className="text-iw-accent-orange mt-1.5">-</span>
+                            <span>{car.cons3}</span>
+                          </li>
+                        )}
                       </ul>
                     </div>
                   )}

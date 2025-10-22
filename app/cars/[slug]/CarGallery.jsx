@@ -2,13 +2,22 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function CarGallery({ gallery }) {
-  console.log('CarGallery received gallery:', gallery);
+export default function CarGallery({ image1, image2, image3, image4, image5, image6 }) {
+  const gallery = [
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    image6,
+  ].filter(Boolean);
+
+  console.log('CarGallery received images:', gallery);
   // Use state to keep track of the selected image
-  const [selectedImage, setSelectedImage] = useState(gallery[0]);
+  const [selectedImage, setSelectedImage] = useState(gallery.length > 0 ? gallery[0] : null);
 
   // The rest of the images are thumbnails
-  const thumbnails = gallery; // Ensure we only ever show 5
+  const thumbnails = gallery;
 
   // Auto-scroll effect
   useEffect(() => {
@@ -25,7 +34,7 @@ export default function CarGallery({ gallery }) {
 
       return () => clearInterval(interval); // Clean up the interval on component unmount
     }
-  }, [gallery]); // Re-run effect if gallery changes
+  }, [gallery, selectedImage]); // Re-run effect if gallery or selectedImage changes
 
   return (
     <div>
@@ -35,16 +44,18 @@ export default function CarGallery({ gallery }) {
         style={{ minHeight: '400px' }} // <-- Set a minimum height here
       >
         <AnimatePresence mode="wait">
-          <motion.img
-            key={selectedImage} // This makes the animation re-run when the src changes
-            src={selectedImage.startsWith('/') ? selectedImage : `/${selectedImage}`}
-            alt="Main car view"
-            className="w-full h-full object-contain" // <-- Use object-contain to fit the image within the fixed height
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          />
+          {selectedImage && (
+            <motion.img
+              key={selectedImage} // This makes the animation re-run when the src changes
+              src={selectedImage.startsWith('/') ? selectedImage : `/${selectedImage}`}
+              alt="Main car view"
+              className="w-full h-full object-contain" // <-- Use object-contain to fit the image within the fixed height
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            />
+          )}
         </AnimatePresence>
       </div>
       

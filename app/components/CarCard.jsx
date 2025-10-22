@@ -17,7 +17,7 @@ export default function CarCard({ car }) {
       transition={{ type: "spring", stiffness: 300 }}
     >
       <Link href={`/cars/${car.slug}`}>
-        <img src={car.gallery[0]} alt={`${car.make} ${car.model}`} className="w-full h-56 object-cover hover:opacity-90 transition-opacity" />
+        <img src={car.image1} alt={`${car.make} ${car.model}`} className="w-full h-56 object-cover hover:opacity-90 transition-opacity" />
       </Link>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-iw-text-primary">{car.make} {car.model}</h3>
