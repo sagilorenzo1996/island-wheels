@@ -1,67 +1,15 @@
 import { FaWhatsapp, FaPhone, FaEnvelope, FaCheckCircle, FaInfoCircle  } from 'react-icons/fa';
 import CarGallery from './CarGallery'; // <-- Import the new client component
-const csv = require('csv-parser'); // Import csv-parser
 
 // --- Data Fetching (Server-side) ---
 async function getCars() {
-  const fs = require('fs');
-  const path = require('path');
-  
-  const filePath = path.join(process.cwd(), 'public', 'car_inventory.csv');
-  try {
-    const data = fs.readFileSync(filePath, 'utf8');
-    const results = [];
-    await new Promise((resolve, reject) => {
-        require('stream').Readable.from(data)
-            .pipe(csv())
-            .on('data', (row) => {
-              // Transform data types for generateStaticParams
-              row.id = parseInt(row.ID, 10);
-              row.year = parseInt(row.Year, 10);
-              row.price = parseInt(row.Price, 10);
-              row.mileage = isNaN(parseInt(row.Mileage, 10)) ? row.Mileage : parseInt(row.Mileage, 10);
-              row.featured = row.Featured === 'true';
-
-              results.push({
-                id: row.id,
-                slug: row.Slug, // Ensure slug is correctly mapped
-                make: row.Make,
-                model: row.Model,
-                year: row.year,
-                price: row.price,
-                currency: row.Currency,
-                price_display: row['Price Display'],
-                price_million: row['Price Million'],
-                mileage: row.mileage,
-                body_type: row['Body Type'],
-                engine: row.Engine,
-                vin: row.VIN,
-                source: row.Source,
-                status: row.Status,
-                featured: row.featured,
-                description: row.Description,
-                image1: row['Image 1'],
-                image2: row['Image 2'],
-                image3: row['Image 3'],
-                image4: row['Image 4'],
-                image5: row['Image 5'],
-                image6: row['Image 6'],
-                pros1: row['Pros 1'],
-                pros2: row['Pros 2'],
-                pros3: row['Pros 3'],
-                cons1: row['Cons 1'],
-                cons2: row['Cons 2'],
-                cons3: row['Cons 3'],
-              });
-            })
-            .on('end', resolve)
-            .on('error', reject);
-    });
-    return results;
-  } catch (err) {
-    console.error("Error reading car_inventory.csv:", err);
-    return [];
+  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+  const response = await fetch(`${baseUrl}/api/cars`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch cars');
   }
+  const cars = await response.json();
+  return cars;
 }
 
 // --- Static Page Generation (Server-side) ---
