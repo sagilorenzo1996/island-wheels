@@ -1,14 +1,10 @@
 import { FaWhatsapp, FaPhone, FaEnvelope, FaCheckCircle, FaInfoCircle  } from 'react-icons/fa';
 import CarGallery from './CarGallery'; // <-- Import the new client component
+import { fetchAndParseCars } from '../../../lib/data'; // Adjust path as necessary
 
 // --- Data Fetching (Server-side) ---
 async function getCars() {
-  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
-  const response = await fetch(`${baseUrl}/api/cars`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch cars');
-  }
-  const cars = await response.json();
+  const cars = await fetchAndParseCars();
   return cars;
 }
 
