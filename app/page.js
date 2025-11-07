@@ -54,7 +54,7 @@ function FeaturedCarCard({ car }) {
       className="glassmorphism rounded-lg shadow-xl overflow-hidden flex flex-col"
       whileHover={{ scale: 1.03, boxShadow: "0px 0px 15px rgba(244, 107, 22, 0.5)" }} // Orange shadow
     >
-      <img src={car.image} alt={`${car.make} ${car.model}`} className="w-full h-56 object-cover" />
+      <img src={car.image1} alt={`${car.make} ${car.model}`} className="w-full h-56 object-cover" />
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold text-iw-text-primary">{car.make} {car.model}</h3>
         
@@ -150,9 +150,9 @@ export default function Home() {
   useEffect(() => {
     const fetchFeaturedCars = async () => {
       try {
-        const response = await fetch('/featured.json');
+        const response = await fetch('/api/cars');
         const data = await response.json();
-        setFeaturedCars(data);
+        setFeaturedCars(data.slice(0, 2));
       } catch (error) {
         console.error("Failed to fetch featured cars:", error);
       }
