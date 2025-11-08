@@ -12,7 +12,7 @@ export const metadata = {
   title: 'Island Wheels - Premium Car Imports Sri Lanka',
   description: 'Your direct source for premium imported vehicles from Japan and the UK.',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.png',
   },
 };
 
