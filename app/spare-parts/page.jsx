@@ -72,7 +72,34 @@ export default function SparePartsPage() {
           </div>
         </div>
       </div>
-      
+
+      {/* Spare Parts List Section */}
+      <div className="container-main max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Our Spare Parts Range</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sparePartsData.map((category, index) => (
+            <motion.div
+              key={index}
+              className="glassmorphism p-6 rounded-lg shadow-lg flex flex-col"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <h3 className="text-2xl font-semibold mb-4 flex items-center">
+                <span className="text-3xl mr-3">{category.icon}</span>
+                {category.category}
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-iw-text-secondary flex-grow">
+                {category.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>{item}</li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       {/* CTA Section - UPDATED */}
       <div className="bg-iw-primary">
         <div className="container-main text-center">
@@ -100,3 +127,96 @@ export default function SparePartsPage() {
     </motion.div>
   );
 }
+
+const sparePartsData = [
+  {
+    category: 'Engine & Drivetrain',
+    icon: '⚙️',
+    items: [
+      'Engine oil filters',
+      'Air filters',
+      'Fuel filters',
+      'Spark plugs / glow plugs',
+      'Timing belts / chains',
+      'Water pumps',
+      'Radiators',
+      'Alternators',
+      'Starter motors',
+      'Clutch kits / components',
+      'Drive shafts / CV joints',
+      'Transmission filters / fluid',
+      'Engine mounts',
+      'Oxygen sensors',
+    ],
+  },
+  {
+    category: 'Braking System',
+    icon: '🚗',
+    items: [
+      'Brake pads',
+      'Brake discs / rotors',
+      'Brake calipers',
+      'Brake fluid',
+      'Brake lines / hoses',
+      'ABS sensors',
+      'Wheel cylinders',
+      'Master cylinders',
+    ],
+  },
+  {
+    category: 'Electrical & Lighting',
+    icon: '💡',
+    items: [
+      'Batteries',
+      'Headlight bulbs',
+      'Tail light bulbs',
+      'Indicator bulbs',
+      'Fuses',
+      'Relays',
+      'Wiper motors',
+      'Window regulators',
+      'Sensors (crankshaft, camshaft, temperature, pressure)',
+      'Ignition coils',
+    ],
+  },
+  {
+    category: 'Suspension & Steering',
+    icon: '🛠️',
+    items: [
+      'Shock absorbers / struts',
+      'Coil springs',
+      'Control arms',
+      'Ball joints',
+      'Tie rod ends',
+      'Power steering pumps',
+      'Steering racks / gearboxes',
+      'Wheel bearings',
+      'Bushings',
+    ],
+  },
+  {
+    category: 'Body & Interior',
+    icon: '🧽',
+    items: [
+      'Wiper blades',
+      'Side mirrors / mirror glass',
+      'Door handles',
+      'Window switches',
+      'Interior trim pieces',
+      'Headlight assemblies',
+      'Tail light assemblies',
+      'Bumper covers',
+      'Fenders',
+      'Hoods',
+      'Trunk lids',
+      'Grilles',
+      'Door panels',
+      'Seats',
+      'Exhaust pipe/muffler',
+      'Exhaust manifold',
+      'Catalytic converter',
+      'Tailpipe',
+      'Resonator',
+    ],
+  },
+];

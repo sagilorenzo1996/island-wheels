@@ -72,6 +72,33 @@ export default function AccessoriesPage() {
           </div>
         </div>
       </div>
+
+      {/* Accessories List Section */}
+      <div className="container-main max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Our Accessory Range</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {accessoriesData.map((category, index) => (
+            <motion.div
+              key={index}
+              className="glassmorphism p-6 rounded-lg shadow-lg flex flex-col"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <h3 className="text-2xl font-semibold mb-4 flex items-center">
+                <span className="text-3xl mr-3">{category.icon}</span>
+                {category.category}
+              </h3>
+              <ul className="list-disc list-inside space-y-2 text-iw-text-secondary flex-grow">
+                {category.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>{item}</li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </div>
+      </div>
       
       {/* CTA Section - UPDATED */}
       <div className="bg-iw-primary">
@@ -100,3 +127,145 @@ export default function AccessoriesPage() {
     </motion.div>
   );
 }
+
+const accessoriesData = [
+  {
+    category: 'Interior Accessories',
+    icon: '🚗',
+    items: [
+      'Seat covers (leather, fabric, waterproof)',
+      'Floor mats (rubber, carpet, all-weather)',
+      'Steering wheel covers',
+      'Sunshades / windshield shades',
+      'Dashboard covers',
+      'Car organizers (seat-back, trunk, glovebox)',
+      'Mobile phone holders / mounts',
+      'Car air fresheners',
+      'Interior LED lights / ambient lighting kits',
+      'Car cushions / neck pillows',
+      'Armrest consoles',
+      'Car dustbins',
+      'USB chargers / multi-port adapters',
+      'Cup holders / cup cooler-warmers',
+      'Key holders / key organizers',
+    ],
+  },
+  {
+    category: 'Electronics & Tech',
+    icon: '🔊',
+    items: [
+      'Car audio systems (speakers, subwoofers, amplifiers)',
+      'Touchscreen infotainment systems',
+      'Car reverse cameras',
+      'Parking sensors',
+      'GPS navigation systems',
+      'Dash cameras',
+      'Tire pressure monitoring systems (TPMS)',
+      'Car alarms / anti-theft systems',
+      'Remote starters',
+      'Car mobile chargers / wireless chargers',
+      'HUD (Head-Up Display)',
+      'Bluetooth adapters',
+      'Car DVRs (Driving Video Recorders)',
+    ],
+  },
+  {
+    category: 'Cleaning & Maintenance',
+    icon: '🧼',
+    items: [
+      'Car shampoo / wax / polish',
+      'Microfiber cloths',
+      'Vacuum cleaners (portable, cordless)',
+      'Dashboard cleaners',
+      'Tire cleaners and shine sprays',
+      'Scratch removers',
+      'Pressure washers',
+      'Glass cleaners',
+      'Wax applicators',
+      'Engine degreasers',
+      'Air freshening sprays',
+      'Cleaning brushes / detailing kits',
+    ],
+  },
+  {
+    category: 'Lighting & Electrical',
+    icon: '💡',
+    items: [
+      'Headlights (LED / HID / Halogen)',
+      'Fog lights',
+      'Tail lights / brake lights',
+      'Interior dome lights',
+      'Underglow LED strips',
+      'Indicator lights',
+      'License plate lights',
+      'DRLs (Daytime Running Lights)',
+      'Headlight restoration kits',
+      'Light controllers',
+    ],
+  },
+  {
+    category: 'Exterior Accessories',
+    icon: '🧳',
+    items: [
+      'Car body covers',
+      'Roof racks / luggage carriers',
+      'Spoilers / diffusers',
+      'Side skirts',
+      'Chrome trims',
+      'Mud flaps',
+      'Door edge guards',
+      'Window visors / rain guards',
+      'Number plate frames',
+      'Car badges / emblems',
+      'Magnetic sunshades',
+      'Bumper protectors',
+      'Mirror covers',
+    ],
+  },
+  {
+    category: 'Performance & Functional Accessories',
+    icon: '⚙️',
+    items: [
+      'Air filters / performance filters',
+      'Exhaust tips / mufflers',
+      'Engine oil coolers',
+      'Brake caliper covers',
+      'Suspension kits',
+      'Car jacks / tool kits',
+      'Tow hooks',
+      'Jump starters',
+      'Portable tire inflators',
+      'Battery chargers',
+    ],
+  },
+  {
+    category: 'Safety & Security',
+    icon: '🔒',
+    items: [
+      'Seat belt pads',
+      'Child car seats',
+      'Fire extinguishers',
+      'First aid kits',
+      'Car escape tools (window breaker & seatbelt cutter)',
+      'Blind spot mirrors',
+      'Rearview mirror wide-angle attachments',
+      'Anti-theft steering locks / wheel locks',
+      'GPS trackers',
+    ],
+  },
+  {
+    category: 'Utility & Convenience',
+    icon: '🛠',
+    items: [
+      'Roof tents / camping kits',
+      'Portable refrigerators',
+      'Car vacuum cleaners',
+      'Car heaters / mini fans',
+      'Tire repair kits',
+      'Trunk organizers',
+      'Portable power stations',
+      'Car jump starter kits',
+      'Umbrella holders',
+    ],
+  },
+];
