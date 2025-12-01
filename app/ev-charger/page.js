@@ -35,10 +35,19 @@ const specs = [
 ];
 
 const galleryImages = [
+  '/ev_charger/824838.webp',
   '/ev_charger/824838b.webp',
   '/ev_charger/824838c.webp',
   '/ev_charger/824838d.webp',
-  '/ev_charger/824838e.webp'
+  '/ev_charger/824838e.webp',
+  '/ev_charger/824838f.webp',
+  '/ev_charger/824838g.webp',
+  '/ev_charger/824846.webp',
+  '/ev_charger/Original.webp',
+  '/ev_charger/Original (1).webp',
+  '/ev_charger/Original (2).webp',
+  '/ev_charger/Original (3).webp',
+  '/ev_charger/Original (4).webp'
 ];
 
 export default function EvChargerPage() {
@@ -115,7 +124,7 @@ export default function EvChargerPage() {
               src="/ev_charger/824838.webp"
               alt="Masterplug EV Charger"
               fill
-              className="object-cover"
+              className="object-contain"
               priority
             />
           </motion.div>
@@ -186,7 +195,7 @@ export default function EvChargerPage() {
                 src={src}
                 alt={`Gallery Image ${index + 1}`}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                className="object-contain group-hover:scale-110 transition-transform duration-500"
               />
             </motion.div>
           ))}
