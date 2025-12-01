@@ -22,10 +22,10 @@ function TeamMemberCard({ name, title, imgSrc, onAnimate }) {
           className="object-cover w-full h-full"
         />
       </div>
-      
+
       <h4 className="text-xl font-bold text-iw-text-primary mb-1">{name}</h4>
       <p className="text-iw-accent-orange mb-4">{title}</p>
-      
+
       {/* Placeholder Contact Icons */}
       <div className="flex justify-center space-x-4 text-iw-text-secondary">
         <a href="mailto:placeholder@islandwheels.com" className="hover:text-iw-accent-orange transition-colors" aria-label="Email">
@@ -44,7 +44,7 @@ function TeamMemberCard({ name, title, imgSrc, onAnimate }) {
 
 export default function AboutPage() {
   return (
-    <motion.div 
+    <motion.div
       className="bg-iw-secondary"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -53,8 +53,8 @@ export default function AboutPage() {
       <div className="container-main">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-center mb-12 text-glow">About Island Wheels</h1>
-          
-          <motion.div 
+
+          <motion.div
             className="space-y-8 text-lg text-iw-text-secondary leading-relaxed glassmorphism p-8 md:p-12 rounded-lg"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function AboutPage() {
             </p>
 
             <h3 className="text-3xl font-semibold text-iw-accent-orange">What Makes Us Different?</h3>
-            
+
             <ul className="list-disc list-inside space-y-4 marker:text-iw-accent-orange">
               <li>
                 <strong>Unmatched Expertise:</strong> Our team lives and breathes cars. We understand the nuances of the Japanese auction system and the quality of the UK market. We know what to look for and, more importantly, what to avoid.
@@ -93,30 +93,30 @@ export default function AboutPage() {
           <div className="mt-16">
             <h2 className="text-3xl font-bold text-center mb-12 text-glow">Meet Our Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <TeamMemberCard 
-                name="Sajee Lorenzo" 
+              <TeamMemberCard
+                name="Sajee Lorenzo"
                 title="Founder / Lead Importer"
                 imgSrc="/team/sajee.png" // <-- Added image path
                 onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } }}
               />
-              <TeamMemberCard 
-                name="Kasun Kalhara" 
+              <TeamMemberCard
+                name="Kasun Kalhara"
                 title="Operations Manager"
                 imgSrc="/team/kasun.png" // <-- Added image path
                 onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.4 } }}
               />
-              <TeamMemberCard 
-                name="Hasitha Athukorala" 
+              <TeamMemberCard
+                name="Hasitha Athukorala"
                 title="Logistics & Compliance"
                 imgSrc="/team/hasitha.png" // <-- Added image path
                 onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } }}
               />
-              <TeamMemberCard 
-              name="Kaushan Dissanayake" 
-              title="UK Operations"
-              imgSrc="/team/hasitha.png" // <-- Added image path
-              onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } }}
-            />
+              <TeamMemberCard
+                name="Kaushan Dissanayake"
+                title="UK Operations"
+                imgSrc="/team/kaushan.png" // <-- Added image path
+                onAnimate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.6 } }}
+              />
             </div>
           </div>
 
