@@ -12,6 +12,7 @@ export default function Navbar() {
     { href: '/', label: 'Home' },
     { href: '/cars', label: 'Cars' },
     { href: '/spare-parts', label: 'Spare Parts' },
+    { href: '/ev-charger', label: 'EV Charger' },
     { href: '/accessories', label: 'Accessories' },
     { href: '/service', label: 'How to Import' },
     { href: '/about', label: 'About Us' },
@@ -31,7 +32,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 glassmorphism shadow-lg">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-20">
-          
+
           <Link href="/">
             <Image
               src="/logo.png"
@@ -42,7 +43,7 @@ export default function Navbar() {
               priority
             />
           </Link>
-          
+
           {/* Desktop Nav & Socials Wrapper */}
           <div className="hidden md:flex items-center">
             {/* Page Links */}
@@ -88,7 +89,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <motion.div 
+        <motion.div
           className="md:hidden glassmorphism border-t border-iw-accent-orange/20"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
@@ -97,9 +98,9 @@ export default function Navbar() {
             {/* Mobile Page Links */}
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.href} 
-                  href={link.href} 
+                <Link
+                  key={link.href}
+                  href={link.href}
                   className="text-iw-text-secondary hover:text-iw-accent-orange text-lg"
                   onClick={() => setIsOpen(false)}
                 >
@@ -114,17 +115,17 @@ export default function Navbar() {
             {/* Mobile Social Links */}
             <div className="flex items-center space-x-5 pt-2">
               {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-iw-text-secondary hover:text-iw-accent-orange transition-colors"
-                    aria-label={`Follow us on ${social.href}`}
-                  >
-                    <social.icon size={22} />
-                  </a>
-                ))}
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-iw-text-secondary hover:text-iw-accent-orange transition-colors"
+                  aria-label={`Follow us on ${social.href}`}
+                >
+                  <social.icon size={22} />
+                </a>
+              ))}
             </div>
           </div>
         </motion.div>
